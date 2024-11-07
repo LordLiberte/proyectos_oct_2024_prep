@@ -5,8 +5,9 @@
       <excludeFolder url="file://$MODULE_DIR$/Lectura_recomendada/Python_Aplicaciones_Practicas/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/sesion02/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Pruebas_trabajo/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/sesion03/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.13" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.13 (proyectos_oct_2024_prep)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
