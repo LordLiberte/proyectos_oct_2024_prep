@@ -6,4 +6,8 @@
 def saludo():
     print("Hola Mundo")
 
-saludo()
+# función de suma
+def suma(a, b):
+    print(a+b)
+
+suma(3, 5)  # llamada a la función
