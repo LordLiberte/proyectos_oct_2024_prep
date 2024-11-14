@@ -10,4 +10,4 @@ def saludo():
 def suma(a, b):
     print(a+b)
 
-suma(3, 5)  # llamada a la función
+suma(3, 5) # llamada a la función
