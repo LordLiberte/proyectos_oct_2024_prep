@@ -1,3 +1,5 @@
+# funciona más o menos pero pa que más, en caso de necesitar que funcione OK -> REVISAR
+
 import random
 import string
 from itertools import chain
