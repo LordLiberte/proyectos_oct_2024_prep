@@ -8,6 +8,7 @@ def saludo():
 
 # función de suma
 def suma(a, b):
-    print(a+b)
+    return a+b
 
-suma(3, 5) # llamada a la función
+resultado = suma(suma(4, 5), 5) # llamada a la función
+print(resultado)
