@@ -9,6 +9,7 @@ Se pretende disponer de una pequeña aplicación realizada con Python para gesti
 un equipo de baloncesto en un partido.
 """
 
+
 # APARTADO FUNCIONES --------------------------------------------------------------------
 
 # ===================================================================
@@ -24,7 +25,8 @@ def menu():
                "Introducir un nuevo jugador",
                "Listar jugadores",
                "Máximo anotador",
-               "Estadísticas del equipo"]  # Lista de opciones del usuario
+               "Estadísticas del equipo",
+               "Ampliación"]  # Lista de opciones del usuario
 
     contador_titulos = 0  # Contador para índices
 
