@@ -25,6 +25,7 @@ def menu():
                "Listar jugadores",
                "Máximo anotador",
                "Estadísticas del equipo"]  # Lista de opciones del usuario
+
     contador_titulos = 0  # Contador para índices
 
     # Bucle for para imprimir cada título de la lista con su número correspondiente
@@ -39,6 +40,7 @@ def menu():
     decisiones = input("Elija el número que desea realizar: ")
     return decisiones
 
+
 # ===================================================================
 # Saludo inicial al usuario
 # ===================================================================
@@ -48,47 +50,51 @@ def saludo():
     decisiones = input(f"¿Desea iniciar sesión, {nombre}? [Si/No]\n").lower()
     return decisiones
 
+
 # ===================================================================
 # OPCIÓN 1. Introducir nuevo jugador
 # ===================================================================
 def agregar_jugador(listado_jugadores):
     print("\n--- Agregar un nuevo jugador ---")
 
-    # lista de caracteristicas del para enviar a la función
+    # Lista de características del jugador para enviar a la función
     lista_caracteristicas = [input("Indique nombre del jugador: "),
                              input("Indique dorsal del jugador: "),
                              input("Indique canastas de 3 del jugador: "),
                              input("Indique canastas de 2 del jugador: "),
                              input("Indique canastas de 1 del jugador: ")]
 
-    # llamada a la función de crear jugador
+    # Llamada a la función de crear jugador
     jugador = nuevo_jugador(lista_caracteristicas)
-    # añade el jugador a una lista de jugadores
+
+    # Añade el jugador a una lista de jugadores
     listado_jugadores.append(jugador)
 
-    # avisa de que se ha creado el jugador
+    # Avisa de que se ha creado el jugador
     print("\nJugador agregado correctamente.")
+
+
 # ===================================================================
 # Subfunción de OPCIÓN 1. Introducir nuevo jugador
 # ===================================================================
 def nuevo_jugador(lista_caracteristica):
     jugadores = {"Nombre": lista_caracteristica[0],
-               "Dorsal": lista_caracteristica[1],
-               "Canastas de 3": lista_caracteristica[2],
-               "Canastas de 2": lista_caracteristica[3],
-               "Canastas de 1": lista_caracteristica[4]}
+                 "Dorsal": lista_caracteristica[1],
+                 "Canastas de 3": lista_caracteristica[2],
+                 "Canastas de 2": lista_caracteristica[3],
+                 "Canastas de 1": lista_caracteristica[4]}
     return jugadores
+
 
 # ===================================================================
 # OPCIÓN 2. Listar jugadores creados
 # ===================================================================
 def listar_jugadores(lista_jugadores):
-    # si no hay jugadores, avisa al usuario
+    # Si no hay jugadores, avisa al usuario
     if not listado_jugadores:
         print("\nNo hay jugadores registrados aún.")
-
-    # Imprime una cadena f-string por cada jugador de la lista de jugadores con sus caracteristicas
     else:
+        # Imprime una cadena f-string por cada jugador con sus características
         print("\nListado de jugadores:")
         for j in listado_jugadores:
             print(f"Nombre: {j['Nombre']}, Dorsal: {j['Dorsal']}, Canastas de 3: {j['Canastas de 3']}, "
@@ -99,10 +105,9 @@ def listar_jugadores(lista_jugadores):
 # OPCIÓN 3. Máximo anotador
 # ===================================================================
 def maximo_anotador(lista_jugadores):
-
     # Variables generales función =======================
     lista_puntuaciones = []     # Lista de puntuaciones para identificar la máxima
-    max_anotadores = []     # Lista de jugadores con la puntuación máxima
+    max_anotadores = []         # Lista de jugadores con la puntuación máxima
     # ==================================================
 
     # Si no hay jugadores, avisa al usuario
@@ -135,6 +140,41 @@ def maximo_anotador(lista_jugadores):
         print(f"Cada uno con {max_puntuacion} puntos.")
 
 
+# ===================================================================
+# OPCIÓN 4. Puntuación del equipo
+# ===================================================================
+def puntuacion_equipo(lista_jugadores):
+    # Variables generales ================================
+    canastas_3 = 0
+    canastas_2 = 0
+    canastas_1 = 0
+    canastas_totales = 0
+    # ====================================================
+
+    # Si no hay jugadores, avisa al usuario
+    if not lista_jugadores:
+        print("\nNo hay jugadores registrados aún.")
+        return
+
+    # Por jugador suma sus canastas
+    for jugador in lista_jugadores:
+        canastas_3 += int(jugador["Canastas de 3"])
+        canastas_2 += int(jugador["Canastas de 2"])
+        canastas_1 += int(jugador["Canastas de 1"])
+
+    # Suma el total de canastas de todos los jugadores
+    canastas_totales = (canastas_3 * 3) + (canastas_2 * 2) + canastas_1
+
+    print("Estas son las estadísticas del equipo:\n")
+    print(f"""
+- Canastas de 3: {canastas_3},
+- Canastas de 2: {canastas_2},
+- Canastas de 1: {canastas_1},
+- Total puntos: {canastas_totales}
+""")
+
+
+# =====================================================================================================================
 # PROGRAMA -----------------------------------------------------------------------------------------
 
 # Variables globales ------------------------------------------------
@@ -154,28 +194,28 @@ while True:
     elif decision == "si":
         opcion = menu()
 
-        # inicializa opción 1  -----
+        # Opción 1: Agregar jugador
         if opcion == "1":
-            agregar_jugador(listado_jugadores)  # llama a la función de añadir jugadores
+            agregar_jugador(listado_jugadores)
 
-        # inicializa opción 2   -----
+        # Opción 2: Listar jugadores
         elif opcion == "2":
-            listar_jugadores(listado_jugadores)  # llama a la función de listar jugadores
+            listar_jugadores(listado_jugadores)
 
-        # inicializa opción 3   -----
+        # Opción 3: Máximo anotador
         elif opcion == "3":
-            maximo_anotador(listado_jugadores)  # llama a la función de máximo anotador
+            maximo_anotador(listado_jugadores)
 
-        # inicializa opción 4  -----
+        # Opción 4: Estadísticas del equipo
         elif opcion == "4":
-            pass
+            puntuacion_equipo(listado_jugadores)
 
-        # Sle del programa
+        # Salir del programa
         elif opcion == "0":
             print("¡Gracias por usar la aplicación! Hasta pronto.")
             break
 
-        # en caso de valor invalido para opción elegida, se avisa al usuario
+        # En caso de valor inválido
         else:
             print("Opción no válida, por favor intente de nuevo.")
     else:
