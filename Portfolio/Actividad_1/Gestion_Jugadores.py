@@ -165,7 +165,7 @@ def puntuacion_equipo(lista_jugadores):
     # Suma el total de canastas de todos los jugadores
     canastas_totales = (canastas_3 * 3) + (canastas_2 * 2) + canastas_1
 
-    print("Estas son las estadísticas del equipo:\n")
+    print("\nEstas son las estadísticas del equipo:\n")
     print(f"""
 - Canastas de 3: {canastas_3},
 - Canastas de 2: {canastas_2},
