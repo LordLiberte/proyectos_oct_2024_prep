@@ -93,17 +93,19 @@ def nuevo_jugador(lista_caracteristica):
 # ===================================================================
 def listar_jugadores(lista_jugadores):
     # Si no hay jugadores, avisa al usuario
-    if not listado_jugadores:
+    if not lista_jugadores:
         print("\nNo hay jugadores registrados aún")
     else:
         # Imprime una cadena f-string por cada jugador con sus características
         print("\nListado de jugadores:")
-        for j in listado_jugadores:
-            canastas_totales = (int(j["Canastas de 3"]) + int(j["Canastas de 2"]) +
-                                int(j["Canastas de 3"]))
+        for j in lista_jugadores:
+            # Calcula los puntos totales ponderados
+            puntos_totales = (int(j["Canastas de 3"]) * 3 +
+                              int(j["Canastas de 2"]) * 2 +
+                              int(j["Canastas de 1"]) * 1)
             print(f"Nombre: {j['Nombre']}, Dorsal: {j['Dorsal']}, Canastas de 3: {j['Canastas de 3']}, "
-                  f"Canastas de 2: {j['Canastas de 2']}, Canastas de 1: {j['Canastas de 1']},"
-                  f" Canastas totales: {canastas_totales}")
+                  f"Canastas de 2: {j['Canastas de 2']}, Canastas de 1: {j['Canastas de 1']}, "
+                  f"Puntos totales: {puntos_totales}")
 
 
 # ===================================================================
@@ -111,8 +113,8 @@ def listar_jugadores(lista_jugadores):
 # ===================================================================
 def maximo_anotador(lista_jugadores):
     # Variables generales función =======================
-    max_canastas = 0        # Número máximo de canastas
-    max_anotadores = []     # Lista de jugadores con la puntuación máxima
+    max_puntos = 0        # Puntos máximos
+    max_anotadores = []   # Lista de jugadores con la puntuación máxima
     # ==================================================
 
     # Si no hay jugadores, avisa al usuario
@@ -120,26 +122,30 @@ def maximo_anotador(lista_jugadores):
         print("\nNo hay jugadores registrados aún")
         return
 
-    # Determina el número máximo de canastas realizadas
+    # Determina el número máximo de puntos realizados
     for jugador in lista_jugadores:
-        total_canastas = (int(jugador["Canastas de 3"]) + int(jugador["Canastas de 2"]) + int(jugador["Canastas de 1"]))
-        if total_canastas > max_canastas:
-            max_canastas = total_canastas
+        total_puntos = (int(jugador["Canastas de 3"]) * 3 +
+                        int(jugador["Canastas de 2"]) * 2 +
+                        int(jugador["Canastas de 1"]) * 1)
+        if total_puntos > max_puntos:
+            max_puntos = total_puntos
 
-    # Encuentra los jugadores con el número máximo de canastas
+    # Encuentra los jugadores con el número máximo de puntos
     for jugador in lista_jugadores:
-        total_canastas = (int(jugador["Canastas de 3"]) + int(jugador["Canastas de 2"]) + int(jugador["Canastas de 1"]))
-        if total_canastas == max_canastas:
+        total_puntos = (int(jugador["Canastas de 3"]) * 3 +
+                        int(jugador["Canastas de 2"]) * 2 +
+                        int(jugador["Canastas de 1"]) * 1)
+        if total_puntos == max_puntos:
             max_anotadores.append(jugador["Nombre"])
 
     # Resultado según cantidad de máximos anotadores
     if len(max_anotadores) == 1:
-        print(f"El máximo anotador es: {max_anotadores[0]} con {max_canastas} canastas totales.")
+        print(f"El máximo anotador es: {max_anotadores[0]} con {max_puntos} puntos totales.")
     else:
         print("Los máximos anotadores son:")
         for nombre in max_anotadores:
             print(f"- {nombre}")
-        print(f"Cada uno con {max_canastas} anotaciones")
+        print(f"Cada uno con {max_puntos} puntos totales.")
 
 
 # ===================================================================
@@ -147,10 +153,10 @@ def maximo_anotador(lista_jugadores):
 # ===================================================================
 def puntuacion_equipo(lista_jugadores):
     # Variables generales ================================
-    canastas_3 = 0
-    canastas_2 = 0
-    canastas_1 = 0
-    canastas_totales = 0
+    puntos_3 = 0
+    puntos_2 = 0
+    puntos_1 = 0
+    puntos_totales = 0
     # ====================================================
 
     # Si no hay jugadores, avisa al usuario
@@ -158,23 +164,22 @@ def puntuacion_equipo(lista_jugadores):
         print("\nNo hay jugadores registrados aún.")
         return
 
-    # Por jugador suma sus canastas
+    # Por jugador suma sus puntos
     for jugador in lista_jugadores:
-        canastas_3 += int(jugador["Canastas de 3"])
-        canastas_2 += int(jugador["Canastas de 2"])
-        canastas_1 += int(jugador["Canastas de 1"])
+        puntos_3 += int(jugador["Canastas de 3"]) * 3
+        puntos_2 += int(jugador["Canastas de 2"]) * 2
+        puntos_1 += int(jugador["Canastas de 1"]) * 1
 
-    # Suma el total de canastas de todos los jugadores
-    canastas_totales = (canastas_3) + (canastas_2) + canastas_1
+    # Suma el total de puntos de todos los jugadores
+    puntos_totales = puntos_3 + puntos_2 + puntos_1
 
     print("\nEstas son las estadísticas del equipo:\n")
     print(f"""
-- Canastas de 3: {canastas_3},
-- Canastas de 2: {canastas_2},
-- Canastas de 1: {canastas_1},
-- Total puntos: {canastas_totales}
+- Puntos por canastas de 3: {puntos_3},
+- Puntos por canastas de 2: {puntos_2},
+- Puntos por canastas de 1: {puntos_1},
+- Total puntos: {puntos_totales}
 """)
-
 
 # =====================================================================================================================
 # PROGRAMA -----------------------------------------------------------------------------------------
