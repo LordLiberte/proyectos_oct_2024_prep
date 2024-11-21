@@ -7,10 +7,8 @@ ACTIVIDAD 1: INTRODUCCIÓN A PYTHON
 
 Se pretende disponer de una pequeña aplicación realizada con Python para gestionar las estadísticas de los jugadores de
 un equipo de baloncesto en un partido.
-
 """
 import time
-
 
 # APARTADO FUNCIONES --------------------------------------------------------------------
 
@@ -27,14 +25,12 @@ def menu():
                "Introducir un nuevo jugador",
                "Listar jugadores",
                "Máximo anotador",
-               "Estadísticas del equipo"]   # lista de opciones del usuario
-    contador_titulos = 0  # contador para indices
+               "Estadísticas del equipo"]  # Lista de opciones del usuario
+    contador_titulos = 0  # Contador para índices
 
-    # Bucle for para imprimir cada titulo de la lista con su número correspondiente
+    # Bucle for para imprimir cada título de la lista con su número correspondiente
     for titulo in titulos:
-
-        # estas condiciones hacen que salir del programa siempre sea la ultima opción
-        if contador_titulos < len(titulos)-1:
+        if contador_titulos < len(titulos) - 1:
             contador_titulos += 1
             print(f"[{contador_titulos}] {titulos[contador_titulos]}")
         else:
@@ -45,7 +41,7 @@ def menu():
     return decision
 
 # ===================================================================
-# Saludo inicial al usuario, permite minusculas, no acentos
+# Saludo inicial al usuario
 # ===================================================================
 def saludo():
     print("¡Bienvenido!")
@@ -56,52 +52,59 @@ def saludo():
 # ===================================================================
 # OPCIÓN 1. Introducir nuevo jugador
 # ===================================================================
-def nuevo_jugador(nombre, dorsal, Canastas_3, Canastas_2, Canastas_1):
-    lista_juadores = []
-    jugador = {"Nombre": nombre, "Dorsal": dorsal, "Canastas de 3": Canastas_3,
-               "Canastas de 2": Canastas_2, "Canatas de 1": Canastas_1}
-    lista_juadores.append(jugador)
-    return lista_juadores
+def nuevo_jugador(lista_caracteristicas):
+    jugador = {"Nombre": lista_caracteristicas[0],
+               "Dorsal": lista_caracteristicas[1],
+               "Canastas de 3": lista_caracteristicas[2],
+               "Canastas de 2": lista_caracteristicas[3],
+               "Canastas de 1": lista_caracteristicas[4]}
+    return jugador
 
-# CICLO DE PROGRAMA -----------------------------------------------------------------------
+# Variables globales ------------------------------------------------
+listado_jugadores = []  # Lista para almacenar los jugadores
 
-decision = saludo()  # guarda la decisión del usuario
+# Saludo inicial -----------------------------------------------------
+decision = saludo()  # Saluda al usuario y pregunta si quiere iniciar sesión
 
+# BUCLE PRINCIPAL
 while True:
-
-    if decision == "no":  # decisión "No" del usuario
-        print("Una pena... Nos vemos en la próxima")
+    # Si la decisión es "no", termina el programa
+    if decision == "no":
+        print("Espero verte de nuevo...")
         break
 
-    elif decision == "si":  # condición del usuario si acepta o no iniciar sesión
+    # Si la decisión es "sí", inicia el menú de opciones
+    elif decision == "si":
+        opcion = menu()
 
-        # ---------------------------------------------------------------------
-        # Bloque validación entrada de usuario
-        try:
-            opcion_elegida = int(menu())  # guarda la opción elegida del usuario
+        if opcion == "1":
+            print("\n--- Agregar un nuevo jugador ---")
+            lista_caracteristicas = [input("Indique nombre del jugador: "),
+                                     input("Indique dorsal del jugador: "),
+                                     input("Indique canastas de 3 del jugador: "),
+                                     input("Indique canastas de 2 del jugador: "),
+                                     input("Indique canastas de 1 del jugador: ")]
 
-        # Para valores incorrectos
-        except ValueError:
-            print("Debe ser un número, vuelva a intentarlo")
-            time.sleep(2)
-            pass
-        # Para valores correctos
+            jugador = nuevo_jugador(lista_caracteristicas)
+            listado_jugadores.append(jugador)
+
+            print("\nJugador agregado correctamente.")
+
+        elif opcion == "2":
+            if not listado_jugadores:
+                print("\nNo hay jugadores registrados aún.")
+            else:
+                print("\nListado de jugadores:")
+                for j in listado_jugadores:
+                    print(f"Nombre: {j['Nombre']}, Dorsal: {j['Dorsal']}, Canastas 3: {j['Canastas de 3']}, "
+                          f"Canastas 2: {j['Canastas de 2']}, Canastas 1: {j['Canastas de 1']}")
+
+        elif opcion == "0":
+            print("¡Gracias por usar la aplicación! Hasta pronto.")
+            break
+
         else:
-            if opcion_elegida == 0:
-                print("¡Espero verte pronto!")
-                time.sleep(2)
-                break
-
-            if opcion_elegida == 1:
-                nombre = input("Nombre del jugador: ")
-                dorsal = input("Dorsal del jugador: ")
-                Canastas_3 = input("Número de canastas de 3: ")
-                Canastas_2 = input("Número de canastas de 2: ")
-                Canastas_1 = input("Número de canastas de 1: ")
-                jugadores_listados = nuevo_jugador(nombre, dorsal, Canastas_3,
-                                                  Canastas_2, Canastas_1)
-                print("¡Jugador creado!")
-                time.sleep(0.5)
-
-        # ---------------------------------------------------------------------
-
+            print("Opción no válida, por favor intente de nuevo.")
+    else:
+        print("Entrada inválida. Responda 'Si' o 'No'.")
+        decision = saludo()  # Re-pregunta si la entrada inicial fue inválida
