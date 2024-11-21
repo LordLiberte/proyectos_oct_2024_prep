@@ -140,12 +140,12 @@ def maximo_anotador(lista_jugadores):
 
     # Resultado según cantidad de máximos anotadores
     if len(max_anotadores) == 1:
-        print(f"El máximo anotador es: {max_anotadores[0]} con {max_puntos} puntos totales.")
+        print(f"El máximo anotador es: {max_anotadores[0]} con {max_puntos} puntos")
     else:
         print("Los máximos anotadores son:")
         for nombre in max_anotadores:
             print(f"- {nombre}")
-        print(f"Cada uno con {max_puntos} puntos totales.")
+        print(f"Cada uno con {max_puntos} puntos totales")
 
 
 # ===================================================================
