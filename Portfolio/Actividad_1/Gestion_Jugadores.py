@@ -99,8 +99,11 @@ def listar_jugadores(lista_jugadores):
         # Imprime una cadena f-string por cada jugador con sus características
         print("\nListado de jugadores:")
         for j in listado_jugadores:
+            canastas_totales = (int(j["Canastas de 3"]) + int(j["Canastas de 2"]) +
+                                int(j["Canastas de 3"]))
             print(f"Nombre: {j['Nombre']}, Dorsal: {j['Dorsal']}, Canastas de 3: {j['Canastas de 3']}, "
-                  f"Canastas de 2: {j['Canastas de 2']}, Canastas de 1: {j['Canastas de 1']}")
+                  f"Canastas de 2: {j['Canastas de 2']}, Canastas de 1: {j['Canastas de 1']},"
+                  f" Canastas totales: {canastas_totales}")
 
 
 # ===================================================================
@@ -127,10 +130,10 @@ def maximo_anotador(lista_jugadores):
 
     for jugador in lista_jugadores:
         puntos = (int(jugador["Canastas de 3"]) * 3 + int(jugador["Canastas de 2"]) * 2
-                  + int(jugador["Canastas de 1"]))
+                  + int(jugador["Canastas de 1"]))  # suma el total de anotaciones de cada jugador
 
         if puntos == max_puntuacion:
-            max_anotadores.append(jugador["Nombre"])
+            max_anotadores.append(jugador["Nombre"])  # guarda el nombre del jugador con máxima puntuación
 
     # Resultado según cantidad de máximos anotadores
     if len(max_anotadores) == 1:
