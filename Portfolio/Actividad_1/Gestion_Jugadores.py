@@ -8,7 +8,7 @@ ACTIVIDAD 1: INTRODUCCIÓN A PYTHON
 Se pretende disponer de una pequeña aplicación realizada con Python para gestionar las estadísticas de los jugadores de
 un equipo de baloncesto en un partido.
 """
-
+import os
 
 # APARTADO FUNCIONES --------------------------------------------------------------------
 
@@ -188,6 +188,7 @@ listado_jugadores = []  # Lista para almacenar los jugadores
 
 # Saludo inicial -----------------------------------------------------
 decision = saludo()  # Saluda al usuario y pregunta si quiere iniciar sesión
+os.system('cls' if os.name == 'nt' else 'clear')
 
 # BUCLE PRINCIPAL
 while True:
@@ -199,6 +200,7 @@ while True:
     # Si la decisión es "sí", inicia el menú de opciones
     elif decision == "si":
         opcion = menu()
+        os.system('cls' if os.name == 'nt' else 'clear')
 
         # Opción 1: Agregar jugador
         if opcion == "1":
