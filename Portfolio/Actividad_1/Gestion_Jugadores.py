@@ -25,8 +25,7 @@ def menu():
                "Introducir un nuevo jugador",
                "Listar jugadores",
                "Máximo anotador",
-               "Estadísticas del equipo",
-               "Ampliación"]  # Lista de opciones del usuario
+               "Estadísticas del equipo"]  # Lista de opciones del usuario
 
     contador_titulos = 0  # Contador para índices
 
