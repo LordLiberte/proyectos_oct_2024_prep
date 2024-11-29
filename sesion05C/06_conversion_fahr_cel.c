@@ -36,9 +36,9 @@ int main(){
 
         //Numero aleatorio entre 0 y 100
         temperatura = rand () % 15;
-        printf("Temperatura %d", temperatura);
+        printf("Temperatura %d\n", temperatura);
         if(temperatura>=10){
-            printf("La cámara se descongela");
+            printf("La cámara se descongela!!");
             break;
         }
 
