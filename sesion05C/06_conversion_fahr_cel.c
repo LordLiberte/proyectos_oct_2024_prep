@@ -38,7 +38,7 @@ int main(){
         temperatura = rand () % 15;
         printf("Temperatura %d\n", temperatura);
         if(temperatura>=10){
-            printf("La cámara se descongela!!");
+            printf("La cámara se descongela!!");  // printf -> print formatted := print cadenas (strings)
             break;
         }
 
