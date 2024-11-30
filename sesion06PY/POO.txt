@@ -1,0 +1,20 @@
+Es un paradigma de programación introducido en los años 70.
+
+Permite organizar el código de manera que se asemeje a como pensamos en al vida real.
+
+Se usan las famosas clases.
+
+Permiten agrupar un conjunto de variables y funciones.
+
+Estas funciones tienen propiedades y métodos que asignamos a un objeto.
+
+Objetivos de POO:
+
+Modularidad: Permite dividir el sistema en componentes independientes que pueden ser desarrollados, probados y mantenidos.
+
+Reutilización: Facilita la Reutilización de código gracias a la HERENCIA y COMPOSICÓN DE CLASES.
+
+Flexibilidad: Adaptcación del software a cambios en los requisitios más facilmente.
+
+Escalabilidad: Permite hacer crecer el software agregando objetos y clases según sea necesario sin afectar
+a la estructura.
