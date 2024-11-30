@@ -18,3 +18,16 @@ Flexibilidad: Adaptcación del software a cambios en los requisitios más facilm
 
 Escalabilidad: Permite hacer crecer el software agregando objetos y clases según sea necesario sin afectar
 a la estructura.
+
+PILARES POO:
+
+1. HERENCIA
+2. COHESIÓN
+3. ABSTRACCIÓN
+4. POLIMORFISMO
+5. ACOPLAMIENTO
+6. ENCAPSULAMIENTO
+
+
+De una misma clase se pueden generar diferentes objetos con sus propiedades y acciones concretas. Por ejemplo,
+crear un coche y una moto, con sus masas y que estas cambien sus propiedades de aceleración y frenado, por ejemplo.
