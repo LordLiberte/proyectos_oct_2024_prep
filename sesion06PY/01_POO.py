@@ -1,21 +1,22 @@
 """CREACIÓN DE CLASES"""
 
 # definición de la clase
-class vehiculo():
+class Perro:
     
     # propiedades de la clase
-    def __init__(self):
-        color = "Azul"
-    
-    # método de la clase
-    def acelerar(velocidad, tipo):
-        print(f"Acelerando {tipo}, la velocidad es de {velocidad}km/h")
-
+    # init es un método especial de las clases
+    def __init__(self, raza, nombre):
+        print(f"Creando perro {nombre}, {raza}")
         
+        # Atributos de instancia
+        self.raza = raza
+        self.nombre = nombre
+    
 
-# Generación de objetos
-coche = vehiculo.acelerar(10, "coche")
+caniche = Perro("Caniche", "Zeus")
+pastorAleman = Perro("Pastor Alemán", "Odin")
+chiuaua = Perro("Chiuaua", "Loki")
 
-moto = vehiculo.acelerar(20, "moto")
+    
         
         
