@@ -17,3 +17,6 @@ class Perro:
 caniche = Perro("Caniche", "Zeus")
 pastorAleman = Perro("Pastor Alemán", "Odin")
 chiuaua = Perro("Chiuaua", "Loki")
+
+
+print(f"El nombre del caniche es {caniche.nombre}")
