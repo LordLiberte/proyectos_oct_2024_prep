@@ -13,6 +13,7 @@ class Perro:
         self.nombre = nombre
     
 
+# Instanciación de la clase -> Crear objetos
 caniche = Perro("Caniche", "Zeus")
 pastorAleman = Perro("Pastor Alemán", "Odin")
 chiuaua = Perro("Chiuaua", "Loki")
