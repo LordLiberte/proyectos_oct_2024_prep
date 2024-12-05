@@ -21,9 +21,4 @@ class Carta:
 carta1 = Carta("Magicarp", "Agua", 200, 450, 1)
 carta2 = Carta("Doraemon", "Mágico", 350, 100, 1)
 
-lista_cartas = []
-
-
-if carta1.ataque < carta2.defensa:
-    print("El ataque es menor que la defensa, la carta es eliminada")
-    lista_cartas.pop()
+print(f"carta con nombre: {carta2.nombre}")
