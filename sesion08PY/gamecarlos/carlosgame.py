@@ -19,16 +19,16 @@ class GameObject:
         self.__rect = self.__img.get_rect()
         self.__rect.center = pox, poy
     
-    def mover_arriba(self, y=-10):
+    def mover_arriba(self, y=-1):
         self.__rect.move_ip(0, y)
     
-    def mover_abajo(self, y=10):
+    def mover_abajo(self, y=1):
         self.__rect.move_ip(0, y)
      
-    def mover_derecha(self, x=10):
+    def mover_derecha(self, x=1):
         self.__rect.move_ip(x, 0)
     
-    def mover_izquierda(self, x=-10):
+    def mover_izquierda(self, x=-1):
         self.__rect.move_ip(x, 0)
     
     def get_imagen(self):
