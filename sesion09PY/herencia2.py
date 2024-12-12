@@ -17,8 +17,12 @@ class Estudiante(Persona):
     def mostrar_informacion_estudiante(self):
         print(f"Nombre: {self.nombre}, Edad: {self.edad}, Nota: {self.nota}")
         
+    def mostrar_informacion2(self):
+        super().mostrar_informacion()  # llamamos a la clase padre -> Particularización
+        
         
  # Crear una instancia de Estudiante
 estudiante = Estudiante("Luis", 20, "8.7")
 estudiante.mostrar_informacion()   # imprime 'Nombre: Luis, Edad: 20'
 estudiante.mostrar_informacion_estudiante() # imprime 'Nombre: Luis, Edad: 20, Nota: 8.7'
+estudiante.mostrar_informacion2()
