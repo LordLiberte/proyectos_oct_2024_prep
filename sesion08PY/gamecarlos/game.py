@@ -20,27 +20,23 @@ while running:
         
         # Tecla apretada
         if event.type == pygame.KEYDOWN:
-        
             playerMove = True  # Establece que el jugador se mueve
             
-            if event.unicode == "w":
+            if event.unicode == "w":  # Movimiento arriba
                 print("Subir player")
                 keypress = "w"
                         
-            if event.unicode == "d":
+            if event.unicode == "d":  # Movimiento abajo
                 print("Derecha player")
                 keypress = "d"
                     
-            if event.unicode == "a":
+            if event.unicode == "a":  # Movimiento derecha
                 print("Izquierda player")
                 keypress = "a"
                     
-            if event.unicode == "s":
+            if event.unicode == "s":  # Movimiento izquierda
                 print("Abajo player")
                 keypress = "s"
-            
-            if event.unicode == "wd" or event.unicode == "dw":
-                keypress = "wd"
         
         # Tecla levantada
         if event.type == pygame.KEYUP:
