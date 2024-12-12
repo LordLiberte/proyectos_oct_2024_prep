@@ -1,4 +1,5 @@
 import pygame
+from enum import Enum
 
 # Clase GameObject
 
@@ -36,3 +37,40 @@ class GameObject:
     
     def get_rect(self):
         return self.__rect
+    
+    
+    
+# HIJOS
+class Personaje(GameObject):
+    
+    def __init__(self, tag, pox=0, poy=0, image="individual.png",  life=3):
+        super().__init__(tag, pox, poy, image)
+        self.life = life
+    
+    def quitar_vida(self, danyo=1):
+        self.life -= danyo
+        print(f"Ahora tienes {self.life} vidas")
+        
+
+class TypeObstacle(Enum):
+    FURNITURE = 0
+    TRAP = 1
+    
+class Damage(Enum):
+    LIGHT = 0
+    HEAVY = 1
+
+class Obstaculo(GameObject):
+    
+    def __init__(self, tag, pox=0, poy=0, image="individual.png", typeobstacle=TypeObstacle.FURNITURE):
+        super().__init__(tag, pox, poy, image)
+        self.typeobstacle
+        
+        # self.__hurt = 0 if typeobstacle == TypeObstacle.FURNITURE else 1  -> condicional ternario
+        
+        if typeobstacle == TypeObstacle.TRAP:
+            self.__damage = Damage.HEAVY
+        else:
+            self.__damage = Damage.LIGHT
+        
+        

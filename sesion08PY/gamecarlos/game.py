@@ -1,5 +1,5 @@
 import pygame
-import carlosgame
+from carlosgame import *
 
 pygame.init() # inicializa pygame motor
 screen = pygame.display.set_mode((1280, 720))  # establcece tamaño pantalla
@@ -9,8 +9,8 @@ width = screen.get_width()
 height = screen.get_height()
 
 # Cargar personaje
-player = carlosgame.GameObject("player", width/2, height/2)
-player2 = carlosgame.GameObject("Player2", width/3, height/3)
+player = Personaje("player", width/2, height/2)
+player2 = GameObject("Player2", width/3, height/3)
 playerMove = False
 keypress = ""
 
@@ -25,6 +25,7 @@ while running:
             if event.unicode == "w":  # Movimiento arriba
                 print("Subir player")
                 keypress = "w"
+                player.quitar_vida()
                         
             if event.unicode == "d":  # Movimiento abajo
                 print("Derecha player")
