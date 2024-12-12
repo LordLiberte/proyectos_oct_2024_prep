@@ -10,6 +10,7 @@ height = screen.get_height()
 
 # Cargar personaje
 player = carlosgame.GameObject("player", width/2, height/2)
+player2 = carlosgame.GameObject("Player2", width/3, height/3)
 
 # Bucle principal
 while running:
@@ -40,6 +41,7 @@ while running:
     
     screen.fill([188,170,164])
     screen.blit(player.get_imagen(), player.get_rect())
+    screen.blit(player2.get_imagen(), player2.get_rect())
     
     pygame.display.flip()
 
