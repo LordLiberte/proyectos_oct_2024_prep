@@ -75,9 +75,9 @@ class Damage(Enum):
 
 class Obstaculo(GameObject):
     
-    def __init__(self, tag, pox=0, poy=0, image="individual.png", typeobstacle=TypeObstacle.FURNITURE):
+    def __init__(self, tag, pox=0, poy=0, image="S_Special.png", typeobstacle=TypeObstacle.FURNITURE):
         super().__init__(tag, pox, poy, image)
-        self.typeobstacle
+        self.typeobstacle = typeobstacle
         
         # self.__hurt = 0 if typeobstacle == TypeObstacle.FURNITURE else 1  -> condicional ternario
         
