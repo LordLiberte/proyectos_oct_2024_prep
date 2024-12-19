@@ -1,6 +1,19 @@
 import pygame
 from enum import Enum
 
+
+# Clase GameObject
+# Atributos de instancia
+# tag, pox, poy, image
+
+# Atributo privado
+# __img, __rect
+
+# Métodos
+# mover_arriba, mover_abajo, mover_derecha, mover_izquierda
+# get_imagen, get_rect
+
+
 # Clase GameObject
 
 class GameObject:
