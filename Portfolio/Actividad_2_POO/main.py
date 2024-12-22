@@ -43,16 +43,16 @@ class VentanaPrincipal:
         pestana_inicio.PestanaInicio("Inicio", self.pestanas) # Envia la información a la pestaña
         
         # Pestaña de empleados
-        pestanas_empleados.PestanaEmpleados("Empleados", self.pestanas)
+        pestanas_empleados.PestanaEmpleados("Empleados", self.pestanas) # Envia la información a la pestaña
         
         # Pestaña de plantas
-        pestana_plantas.PestanaPlantas("Plantas", self.pestanas)
+        pestana_plantas.PestanaPlantas("Plantas", self.pestanas) # Envia la información a la pestaña
         
         # Pestaña de Visualización
-        pestanas_visualizacion.PestanaVisualizacion("Visualización", self.pestanas)
+        pestanas_visualizacion.PestanaVisualizacion("Visualización", self.pestanas) # Envia la información a la pestaña
         
         # Pestaña de ayuda
-        pestanas_ayuda.PestanaAyuda("Ayuda", self.pestanas)
+        pestanas_ayuda.PestanaAyuda("Ayuda", self.pestanas) # Envia la información a la pestaña
         
     
     # Bucle principal de la aplicación
