@@ -46,7 +46,7 @@ class Pestana:
         """Crea un entry en la pestaña"""
         self.x = x # Posición en x
         self.y = y # Posición
-        self.widht = width # Ancho
+        self.width = width # Ancho
         self.height = height # Alto
         
         entry = ttk.Entry(self.pestana) # Crea un entry en la pestaña
@@ -65,9 +65,10 @@ class Pestana:
         label.place(x=self.x, y=self.y, width=self.width, height=self.height) # Ubica la etiqueta en la pestaña donde se le indique
         return label
     
+    # Crear el Treeview y almacenarlo en self.tabla
     def crear_treeview(self, informacion, x, y, width, height):
         """Crea un Treeview en la pestaña"""
-        self.x = x  # Posición en x 
+        self.x = x
         self.y = y
         self.width = width
         self.height = height
@@ -83,10 +84,15 @@ class Pestana:
         # Configurar encabezados de las columnas
         for col in informacion.columns:
             treeview.heading(col, text=col)
-            treeview.column(col, width=100, anchor="center")  # Ajusta el ancho de las columnas si es necesario
+            treeview.column(col, width=100, anchor="center")
 
         # Insertar datos en el Treeview
         for index, row in informacion.iterrows():
             treeview.insert("", "end", values=list(row))
+
+        # Almacenar la referencia del Treeview en self.tabla
+        self.tabla = treeview
+
+        return treeview
         
         

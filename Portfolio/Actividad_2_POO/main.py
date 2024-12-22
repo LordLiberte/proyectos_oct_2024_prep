@@ -11,7 +11,6 @@ Opción elegida:
 ----    IMPORTANTE !!!   ----
 ESTE ARCHIVO INICIA LA APLICACIÓN
 """
-
 """Aquí se crea la clase Ventana Principal y se adicionan las pestañas necesarias para el funcionamiento del programa"""
 
 from librerias import * # Importa las librerías necesarias
@@ -46,7 +45,7 @@ class VentanaPrincipal:
         pestanas_empleados.PestanaEmpleados("Empleados", self.pestanas) # Envia la información a la pestaña
         
         # Pestaña de plantas
-        pestana_funciones.PestanaFunciones("Plantas", self.pestanas) # Envia la información a la pestaña
+        pestana_funciones.PestanaFunciones("Secciones", self.pestanas) # Envia la información a la pestaña
         
         # Pestaña de Visualización
         pestanas_visualizacion.PestanaVisualizacion("Visualización", self.pestanas) # Envia la información a la pestaña

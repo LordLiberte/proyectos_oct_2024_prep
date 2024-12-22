@@ -3,6 +3,9 @@
 from librerias import * # Importa las librerías necesarias
 import Pestanas.pestanas as pestanas
 
+
+archivo = "Portfolio\\Actividad_2_POO\\directorio_json\\db_secciones.json"
+
 class PestanaFunciones(pestanas.Pestana):
     
     # Atributos de clase
@@ -24,6 +27,9 @@ class PestanaFunciones(pestanas.Pestana):
         # Verficador de campos llenos
         self.__verificar_parametros = False
         
+        # arranques con pestaña
+        self.visualizar_info()
+        
 
     # Métodos de clase ============================================================================================================
     
@@ -31,13 +37,13 @@ class PestanaFunciones(pestanas.Pestana):
     def crear_widgets(self):
         
         # Sección empresa ==========================================================================================================
-        self.__label = self.crear_label("Sección", x=50, y=120, width=60, height=30) # Crea una etiqueta en la pestaña
+        self.__label = self.crear_label("Sección", x=50, y=115, width=60, height=40) # Crea una etiqueta en la pestaña
         
         # Nombre de la función =====================================================================================================
-        self.__label = self.crear_label("Nombre de la función", x=50, y=200, width=120, height=30)
+        self.__label = self.crear_label("Función", x=50, y=195, width=120, height=40)
         
         # Funciones ===============================================================================================================
-        self.__label = self.crear_label("Función", x=50, y=160, width=160, height=30)
+        self.__label = self.crear_label("Nombre de la función", x=50, y=155, width=160, height=40)
         
         # Etiqueta guardar ========================================================================================================
         self.__label = self.crear_label("Guardar/Eliminar información", x=70, y=70, width=300, height=30)
@@ -47,103 +53,102 @@ class PestanaFunciones(pestanas.Pestana):
         # BOTONERIA
         self.boton_guardar = self.crear_boton("Guardar", funcion=self.guardar_info, x=50, y=260, width=100, height=30)
         self.boton_eliminar = self.crear_boton("Eliminar", funcion=self.eliminar_info, x=200, y=260, width=100, height=30)
-        self.visualizar = self.crear_boton("Visualizar Base de Datos", funcion=self.visualizar_info, x=350, y=260, width=100, height=30)
+        self.visualizar = self.crear_boton("Actualizar Tabla", funcion=self.visualizar_info, x=350, y=260, width=150, height=30)
         
     
     # Agrega información al JSON ================================================================================================
     def guardar_info(self):
         
         # Comprueba que todos los campos esten llenos
-        if self.__funciones.get() != "" and self.__nombre_funcion.get() != "" and self.__seccion.get() != "":
-            self.__verificar_parametros = True
-            if self.__verificar_parametros:
-                datos = {"Seccion": self.__seccion.get(),
-                         "Nombre de la función": self.__nombre_funcion.get(),
-                         "Funciones": self.__funciones.get()} # Guarda los datos en un diccionario
+        try:
+            if self.__funciones.get() != "" and self.__nombre_funcion.get() != "" and self.__seccion.get() != "":
+                self.__verificar_parametros = True
+                if self.__verificar_parametros:
+                    datos = {"Seccion": self.__seccion.get(),
+                            "Nombre de la función": self.__nombre_funcion.get(),
+                            "Funciones": self.__funciones.get()} # Guarda los datos en un diccionario
                     
-                # Dirección guardar información
-                archivo = "Portfolio\\Actividad_2_POO\\directorio_json\\db_json.json"
-                
-                # Cargar datos existentes si el archivo ya existe
-                datos_existentes = []
-                if os.path.exists(archivo):
+                    # Cargar datos existentes si el archivo ya existe
+                    datos_existentes = []
+                    if os.path.exists(archivo):
+                        with open(archivo, "r") as file:
+                            try:
+                                datos_existentes = json.load(file)
+                                datos_existentes = list(datos_existentes)  # Lo convertimos a diccionario
+                            except json.JSONDecodeError:
+                                datos_existentes = []  # Si el archivo está vacío o corrupto, iniciamos con una lista vacía
+                    
+                    # Agregar el nuevo dato a la lista de datos existentes
+                    with open(archivo, 'r') as file:
+                        if datos not in datos_existentes:
+                            datos_existentes.append(datos)
+                    
+                    # Guardar los datos actualizados en el archivo JSON
+                    with open(archivo, "w") as file:
+                        json.dump(datos_existentes, file, indent=4)
+                    
                     with open(archivo, "r") as file:
-                        try:
-                            datos_existentes = json.load(file)
-                            datos_existentes = list(datos_existentes)  # Lo convertimos a diccionario
-                        except json.JSONDecodeError:
-                            datos_existentes = []  # Si el archivo está vacío o corrupto, iniciamos con una lista vacía
-                
-                # Agregar el nuevo dato a la lista de datos existentes
-                with open(archivo, 'r') as file:
-                    if datos not in datos_existentes:
-                        datos_existentes.append(datos)
-                
-                # Guardar los datos actualizados en el archivo JSON
-                with open(archivo, "w") as file:
-                    json.dump(datos_existentes, file, indent=4)
-                
-                with open(archivo, "r") as file:
-                    datos_existentes = json.load(file)
-                    if datos in datos_existentes:
-                        messagebox.showinfo("Información", "La información ha sido guardada correctamente")
-                
-        else:
-            self.__verificar_parametros = False
-            messagebox.showerror("Error", "Por favor, llene todos los campos")
+                        datos_existentes = json.load(file)
+                        if datos in datos_existentes:
+                            messagebox.showinfo("Información", "La información ha sido guardada correctamente")
+                    
+            else:
+                self.__verificar_parametros = False
+                messagebox.showerror("Error", "Por favor, llene todos los campos")
+        except Exception as e:
+            messagebox.showerror("Error", f"Error: {e}")
             
     # Elimina información del JSON ===============================================================================================
     def eliminar_info(self):
         # Comprueba que todos los campos esten llenos
-        if self.__verificar_parametros:
-            
-                dato_a_eliminar = {"Seccion": self.__seccion.get(),
-                         "Nombre de la función": self.__nombre_funcion.get(),
-                         "Funciones": self.__funciones.get()} # Guarda los datos en un diccionario
+        try:
+            if self.__funciones.get() != "" and self.__nombre_funcion.get() != "" and self.__seccion.get() != "":
+                self.__verificar_parametros = True
+                if self.__verificar_parametros:
                     
-                # Dirección guardar información
-                archivo = "Portfolio\\Actividad_2_POO\\directorio_json\\db_json.json"
-                
-                # Verificar si el archivo existe
-                if not os.path.exists(archivo):
-                    messagebox.showerror("Error", "El archivo JSON no existe")
-                    return
-                
-                # Leer los datos existentes del archivo
-                try:
-                    with open(archivo, "r") as file:
-                        datos_existentes = json.load(file)
-                except json.JSONDecodeError:
-                    messagebox.showerror("Error", "El archivo JSON está corrupto o vacío")
-                    return
-                
-                # Filtrar los datos para eliminar el dato coincidente
-                datos_actualizados = [dato for dato in datos_existentes if dato != dato_a_eliminar]
-                
-                # Verificar si el dato fue eliminado
-                if len(datos_existentes) == len(datos_actualizados):
-                    messagebox.showinfo("Información", "No se encontró el dato a eliminar")
-                    return
-                
-                # Guardar los datos actualizados en el archivo
-                with open(archivo, "w") as file:
-                    json.dump(datos_actualizados, file, indent=4)
-                
-                messagebox.showinfo("Éxito", "El dato ha sido eliminado correctamente")
-        else:
-            messagebox.showerror("Error", "Por favor, complete todos los campos antes de eliminar")
-        
+                        dato_a_eliminar = {"Seccion": self.__seccion.get(),
+                                "Nombre de la función": self.__nombre_funcion.get(),
+                                "Funciones": self.__funciones.get()} # Guarda los datos en un diccionario
+                        
+                        # Verificar si el archivo existe
+                        if not os.path.exists(archivo):
+                            messagebox.showerror("Error", "El archivo JSON no existe")
+                            return
+                        
+                        # Leer los datos existentes del archivo
+                        try:
+                            with open(archivo, "r") as file:
+                                datos_existentes = json.load(file)
+                        except json.JSONDecodeError:
+                            messagebox.showerror("Error", "El archivo JSON está corrupto o vacío")
+                            return
+                        
+                        # Filtrar los datos para eliminar el dato coincidente
+                        datos_actualizados = [dato for dato in datos_existentes if dato != dato_a_eliminar]
+                        
+                        # Verificar si el dato fue eliminado
+                        if len(datos_existentes) == len(datos_actualizados):
+                            messagebox.showinfo("Información", "No se encontró el dato a eliminar")
+                            return
+                        
+                        # Guardar los datos actualizados en el archivo
+                        with open(archivo, "w") as file:
+                            json.dump(datos_actualizados, file, indent=4)
+                        
+                        messagebox.showinfo("Éxito", "El dato ha sido eliminado correctamente")
+                else:
+                    messagebox.showerror("Error", "Por favor, complete todos los campos antes de eliminar")
+        except Exception as e:
+            messagebox.showerror("Error", f"Error: {e}")
 
     # Muestra en una tabla la información del JSON ==============================================================================
     def visualizar_info(self):
-       
-       archivo = "Portfolio\\Actividad_2_POO\\directorio_json\\db_json.json"
        
        with open(archivo, "r") as file:
            datos = json.load(file)
            datos = pd.DataFrame(datos)
        
-       self.tabla = self.crear_treeview(datos, x=50, y=300, width=800, height=300)
+       self.tabla = self.crear_treeview(datos, x=550, y=70, width=700, height=600)
        
         
 
