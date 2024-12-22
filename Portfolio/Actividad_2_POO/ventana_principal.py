@@ -1,7 +1,9 @@
 """Aquí se crea la clase Ventana Principal y se adicionan las pestañas necesarias para el funcionamiento del programa"""
 
-from librerias import *
-from Pestanas import *
+from librerias import * # Importa las librerías necesarias
+import Pestanas.pestanas as pestanas # Importa las pestañas necesarias
+import Pestanas.pestana_inicio as p_inicio
+
 
 class VentanaPrincipal:
     
@@ -21,27 +23,22 @@ class VentanaPrincipal:
         self.pestanas.pack(fill="both", expand="yes")
         
         # Pestaña de inicio
-        self.pestana_inicio = ttk.Frame(self.pestanas)
-        self.pestanas.add(self.pestana_inicio, text="Inicio")
+        p_inicio("Inicio", self.pestanas) # Envia la información de la pestaña
         
         # Pestaña de empleados
-        self.pestana_empleados = ttk.Frame(self.pestanas)
-        self.pestanas.add(self.pestana_empleados, text="Empleados")
+        pestanas.PestanaEmpleados("Empleados", self.pestanas)
         
         # Pestaña de plantas
-        self.pestana_plantas = ttk.Frame(self.pestanas)
-        self.pestanas.add(self.pestana_plantas, text="Plantas")
+        pestanas.PestanaPlantas("Plantas", self.pestanas)
         
-        # Pestaña de configuración
-        self.pestana_configuracion = ttk.Frame(self.pestanas)
-        self.pestanas.add(self.pestana_configuracion, text="Configuración")
+        # Pestaña de Visualización
+        pestanas.PestanaVisualizacion("Configuración", self.pestanas)
         
         # Pestaña de ayuda
-        self.pestana_ayuda = ttk.Frame(self.pestanas)
-        self.pestanas.add(self.pestana_ayuda, text="Ayuda")
+        pestanas.PestanaAyuda("Ayuda", self.pestanas)
         
     
     # Bucle principal de la aplicación
     def iniciar(self):
-        self.ventana.mainloop()
+        self.ventana.mainloop() 
     

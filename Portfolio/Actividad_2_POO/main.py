@@ -7,6 +7,7 @@ Opción elegida: 4
 ESTE ARCHIVO INICIA LA APLICACIÓN
 """
 
+# Importa la clase VentanaPrincipal
 import ventana_principal as vp
 
 # Inicia la aplicación
