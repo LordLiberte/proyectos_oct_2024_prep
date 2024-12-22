@@ -1,8 +1,7 @@
-"""Aquí se crean las pestañas de la aplicación"""
+"""Aquí se crean los widgets, configuraciones, etc. Que se usarán en las pestañas de la aplicación"""
 
 # Importa las librerías necesarias
 from librerias import *
-import pestana_inicio
 
 # Clase padre
 class Pestana:
@@ -17,47 +16,51 @@ class Pestana:
         self.ventana.pack(expand=1, fill='both') # Empaqueta la ventana
         
     # Métodos de clase
-    def crear_boton(self, nombre, funcion, x, y, widht, height):
+    # BOTÓN @@@@@
+    def crear_boton(self, nombre, funcion, x, y, width, height):
         """Crea un botón en la pestaña"""
-        self.x = x
-        self.y = y
-        self.widht = widht
-        self.height = height
+        self.x = x # Posición en x
+        self.y = y # Posición en y
+        self.width = width # Ancho
+        self.height = height # Alto
         
         boton = ttk.Button(self.pestana, text=nombre, command=funcion) # Crea un botón en la pestaña
-        boton.place(x=self.x, y=self.y, widht=self.widht, height=self.height) # Ubica el botón en la pestaña donde se le indique
+        boton.place(x=self.x, y=self.y, width=self.width, height=self.height) # Ubica el botón en la pestaña donde se le indique
         return boton
 
-    def crear_combobox(self, valores, x, y, widht, height):
+    # DEPLEGABLE @@@@@
+    def crear_combobox(self, valores, x, y, width, height):
         """Crea un combobox en la pestaña"""
-        self.x = x
-        self.y = y
-        self.widht = widht
-        self.height = height
+        self.x = x # Posición en x
+        self.y = y # Posición en y
+        self.width = width # Ancho
+        self.height = height # Alto
         
         combobox = ttk.Combobox(self.pestana, values=valores) # Crea un combobox en la pestaña
-        combobox.place(x=self.x, y=self.y, widht=self.widht, height=self.height) # Ubica el combobox en la pestaña donde se le indique
+        combobox.place(x=self.x, y=self.y, width=self.width, height=self.height) # Ubica el combobox en la pestaña donde se le indique
         return combobox
     
-    def crear_entry(self, x, y, widht, height):
+    # ENTRADA DE TEXTO @@@@@
+    def crear_entry(self, x, y, width, height):
         """Crea un entry en la pestaña"""
-        self.x = x
-        self.y = y
-        self.widht = widht
-        self.height = height
+        self.x = x # Posición en x
+        self.y = y # Posición
+        self.widht = width # Ancho
+        self.height = height # Alto
         
         entry = ttk.Entry(self.pestana) # Crea un entry en la pestaña
-        entry.place(x=self.x, y=self.y, widht=self.widht, height=self.height) # Ubica el entry en la pestaña donde se le indique
+        entry.place(x=self.x, y=self.y, width=self.width, height=self.height) # Ubica el entry en la pestaña donde se le indique
         return entry
 
-    def crear_label(self, texto, x, y, widht, height):
+    # ETIQUETA @@@@@
+    def crear_label(self, texto, x, y, width, height):
         """Crea una etiqueta en la pestaña"""
-        self.x = x
-        self.y = y
-        self.widht = widht
+        self.x = x # Posición en x
+        self.y = y # Posición en y
+        self.width = width
         self.height = height
         
         label = ttk.Label(self.pestana, text=texto) # Crea una etiqueta en la pestaña
-        label.place(x=self.x, y=self.y, widht=self.widht, height=self.height) # Ubica la etiqueta en la pestaña donde se le indique
+        label.place(x=self.x, y=self.y, width=self.width, height=self.height) # Ubica la etiqueta en la pestaña donde se le indique
         return label
             
