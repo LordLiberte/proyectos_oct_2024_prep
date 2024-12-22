@@ -16,7 +16,7 @@ ESTE ARCHIVO INICIA LA APLICACIÓN
 
 from librerias import * # Importa las librerías necesarias
 import Pestanas.pestana_inicio as pestana_inicio # Importa la pestaña de inicio
-import Pestanas.pestana_plantas as pestana_plantas # Importa las pestañas de plantas
+import Pestanas.pestana_funciones as pestana_funciones # Importa las pestañas de plantas
 import Pestanas.pestana_empleados as pestanas_empleados # Importa las pestañas de empleados
 import Pestanas.pestana_visualizacion as pestanas_visualizacion # Importa las pestañas de visualización
 import Pestanas.pestana_ayuda as pestanas_ayuda # Importa las pestañas de ayuda
@@ -46,7 +46,7 @@ class VentanaPrincipal:
         pestanas_empleados.PestanaEmpleados("Empleados", self.pestanas) # Envia la información a la pestaña
         
         # Pestaña de plantas
-        pestana_plantas.PestanaPlantas("Plantas", self.pestanas) # Envia la información a la pestaña
+        pestana_funciones.PestanaFunciones("Plantas", self.pestanas) # Envia la información a la pestaña
         
         # Pestaña de Visualización
         pestanas_visualizacion.PestanaVisualizacion("Visualización", self.pestanas) # Envia la información a la pestaña

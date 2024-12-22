@@ -64,4 +64,29 @@ class Pestana:
         label = ttk.Label(self.pestana, text=texto) # Crea una etiqueta en la pestaña
         label.place(x=self.x, y=self.y, width=self.width, height=self.height) # Ubica la etiqueta en la pestaña donde se le indique
         return label
-            
+    
+    def crear_treeview(self, informacion, x, y, width, height):
+        """Crea un Treeview en la pestaña"""
+        self.x = x  # Posición en x 
+        self.y = y
+        self.width = width
+        self.height = height
+
+        # Verifica que la informacion sea un DataFrame de pandas
+        if not isinstance(informacion, pd.DataFrame):
+            raise ValueError("La informacion debe ser un DataFrame de pandas")
+
+        # Crear el Treeview
+        treeview = ttk.Treeview(self.pestana, columns=list(informacion.columns), show="headings")
+        treeview.place(x=self.x, y=self.y, width=self.width, height=self.height)
+
+        # Configurar encabezados de las columnas
+        for col in informacion.columns:
+            treeview.heading(col, text=col)
+            treeview.column(col, width=100, anchor="center")  # Ajusta el ancho de las columnas si es necesario
+
+        # Insertar datos en el Treeview
+        for index, row in informacion.iterrows():
+            treeview.insert("", "end", values=list(row))
+        
+        
