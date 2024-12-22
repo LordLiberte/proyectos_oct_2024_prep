@@ -1,8 +1,11 @@
 """Aquí se crea la clase Ventana Principal y se adicionan las pestañas necesarias para el funcionamiento del programa"""
 
 from librerias import * # Importa las librerías necesarias
-import Pestanas.pestanas as pestanas # Importa las pestañas necesarias
-import Pestanas.pestana_inicio as p_inicio
+import Pestanas.pestana_inicio as pestana_inicio # Importa la pestaña de inicio
+import Pestanas.pestana_plantas as pestana_plantas # Importa las pestañas de plantas
+import Pestanas.pestana_empleados as pestanas_empleados # Importa las pestañas de empleados
+import Pestanas.pestana_visualizacion as pestanas_visualizacion # Importa las pestañas de visualización
+import Pestanas.pestana_ayuda as pestanas_ayuda # Importa las pestañas de ayuda
 
 
 class VentanaPrincipal:
@@ -23,19 +26,19 @@ class VentanaPrincipal:
         self.pestanas.pack(fill="both", expand="yes")
         
         # Pestaña de inicio
-        p_inicio("Inicio", self.pestanas) # Envia la información de la pestaña
+        pestana_inicio("Inicio", self.pestanas) # Envia la información a la pestaña
         
         # Pestaña de empleados
-        pestanas.PestanaEmpleados("Empleados", self.pestanas)
+        pestanas_empleados("Empleados", self.pestanas)
         
         # Pestaña de plantas
-        pestanas.PestanaPlantas("Plantas", self.pestanas)
+        pestana_plantas("Plantas", self.pestanas)
         
         # Pestaña de Visualización
-        pestanas.PestanaVisualizacion("Configuración", self.pestanas)
+        pestanas_visualizacion("Visualización", self.pestanas)
         
         # Pestaña de ayuda
-        pestanas.PestanaAyuda("Ayuda", self.pestanas)
+        pestanas_ayuda("Ayuda", self.pestanas)
         
     
     # Bucle principal de la aplicación
