@@ -1,0 +1,27 @@
+[
+    {
+        "Seccion": "Planta 55",
+        "Nombre de la funci\u00f3n": "Mantenimiento",
+        "Funciones": "TPM"
+    },
+    {
+        "Seccion": "Planta 51",
+        "Nombre de la funci\u00f3n": "Mantenimiento",
+        "Funciones": "TPM"
+    },
+    {
+        "Seccion": "Planta 51",
+        "Nombre de la funci\u00f3n": "Producci\u00f3n",
+        "Funciones": "Operario"
+    },
+    {
+        "Seccion": "Planta 55",
+        "Nombre de la funci\u00f3n": "Producci\u00f3n",
+        "Funciones": "Operario"
+    },
+    {
+        "Seccion": "Recursos Humanos",
+        "Nombre de la funci\u00f3n": "RRHH",
+        "Funciones": "Administraci\u00f3n"
+    }
+]
