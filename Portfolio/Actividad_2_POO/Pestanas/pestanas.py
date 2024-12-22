@@ -58,8 +58,8 @@ class Pestana:
         """Crea una etiqueta en la pestaña"""
         self.x = x # Posición en x
         self.y = y # Posición en y
-        self.width = width
-        self.height = height
+        self.width = width  # Ancho
+        self.height = height # Alto
         
         label = ttk.Label(self.pestana, text=texto) # Crea una etiqueta en la pestaña
         label.place(x=self.x, y=self.y, width=self.width, height=self.height) # Ubica la etiqueta en la pestaña donde se le indique
