@@ -11,7 +11,7 @@ class Pestana:
         """Constructor de la clase"""
         self.nombre = nombre # Nombre de la pestaña
         self.ventana = ventana # Ventana principal
-        self.pestana = ttk.Frame(self.ventana) # Crea una pestaña en la ventana
+        self.pestana = tk.Frame(self.ventana) # Crea una pestaña en la ventana
         self.ventana.add(self.pestana, text=self.nombre) # Añade la pestaña a la ventana
         self.ventana.pack(expand=1, fill='both') # Empaqueta la ventana
         
@@ -26,6 +26,7 @@ class Pestana:
         
         boton = ttk.Button(self.pestana, text=nombre, command=funcion) # Crea un botón en la pestaña
         boton.place(x=self.x, y=self.y, width=self.width, height=self.height) # Ubica el botón en la pestaña donde se le indique
+        boton.config(cursor="hand2") # Cambia el cursor al pasar por encima del botón
         return boton
 
     # DEPLEGABLE @@@@@

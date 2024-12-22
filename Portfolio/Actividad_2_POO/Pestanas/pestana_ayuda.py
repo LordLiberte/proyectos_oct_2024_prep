@@ -9,5 +9,5 @@ class PestanaAyuda(pestanas.Pestana):
     def __init__(self, nombre, ventana):
         """Constructor de la clase"""
         super().__init__(nombre, ventana)
-        self.etiqueta = self.crear_label("Ayuda", 10, 10, 100, 100)
-        self.etiqueta.config(font=("Arial", 20))
+        self.etiqueta = self.crear_label("Ayuda", x=480, y=10, width=320, height=50)
+        self.etiqueta.config(font=("Arial", 20), anchor="center", justify="center")

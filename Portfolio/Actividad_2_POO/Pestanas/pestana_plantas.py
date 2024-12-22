@@ -9,5 +9,5 @@ class PestanaPlantas(pestanas.Pestana):
     def __init__(self, nombre, ventana):
         """Constructor de la clase"""
         super().__init__(nombre, ventana) # Hereda los atributos de la clase padre
-        self.etiqueta = self.crear_label("Gestión de plantas", 10, 10, 100, 100) # Crea una etiqueta en la pestaña
-        self.etiqueta.config(font=("Arial", 20)) # Configura la fuente de la etiqueta
+        self.etiqueta = self.crear_label("Gestión de plantas", x=480, y=10, width=320, height=50) # Crea una etiqueta en la pestaña
+        self.etiqueta.config(font=("Arial", 20), anchor="center", justify="center") # Configura la fuente de la etiqueta
