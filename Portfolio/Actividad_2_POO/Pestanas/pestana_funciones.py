@@ -1,11 +1,12 @@
-"""Aqui se definen las caracteristicas y widgets de la pestaña plantas"""
+"""Aqui se definen las caracteristicas y widgets de la pestaña funciones"""
 
 from librerias import * # Importa las librerías necesarias
 import Pestanas.pestanas as pestanas
 
-
+# Base de datos en formato JSON
 archivo = "Portfolio\\Actividad_2_POO\\directorio_json\\db_secciones.json"
 
+# Clase de la pestaña de funciones
 class PestanaFunciones(pestanas.Pestana):
     
     # Atributos de clase
@@ -20,9 +21,9 @@ class PestanaFunciones(pestanas.Pestana):
         self.__label = ""
         
         # Genera las entradas directamente con la pestaña
-        self.__seccion = self.crear_entry(x=200, y=120, width=400, height=30)
-        self.__funciones = self.__funciones = self.crear_entry(x=200, y=200, width=400, height=30)
-        self.__nombre_funcion = self.__nombre_funcion = self.crear_entry(x=200, y=160, width=400, height=30)
+        self.__seccion = self.crear_entry(x=200, y=120, width=300, height=30)
+        self.__funciones = self.crear_entry(x=200, y=200, width=300, height=30)
+        self.__nombre_funcion = self.crear_entry(x=200, y=160, width=300, height=30)
         
         # Verficador de campos llenos
         self.__verificar_parametros = False
