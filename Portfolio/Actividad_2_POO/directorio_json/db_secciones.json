@@ -1,7 +1,67 @@
 [
     {
-        "Seccion": "a",
-        "Nombre de la funci\u00f3n": "A",
-        "Funciones": "a"
+        "Seccion": "Planta 55",
+        "Nombre de la funci\u00f3n": "TPM",
+        "Funciones": "Mantenimiento"
+    },
+    {
+        "Seccion": "Planta 51",
+        "Nombre de la funci\u00f3n": "TPM",
+        "Funciones": "Mantenimiento"
+    },
+    {
+        "Seccion": "Planta 53",
+        "Nombre de la funci\u00f3n": "TPM",
+        "Funciones": "Mantenimiento"
+    },
+    {
+        "Seccion": "Planta 55",
+        "Nombre de la funci\u00f3n": "Operario",
+        "Funciones": "Producci\u00f3n"
+    },
+    {
+        "Seccion": "Planta 51",
+        "Nombre de la funci\u00f3n": "Operario",
+        "Funciones": "Producci\u00f3n"
+    },
+    {
+        "Seccion": "Planta 53",
+        "Nombre de la funci\u00f3n": "Operario",
+        "Funciones": "Producci\u00f3n"
+    },
+    {
+        "Seccion": "Planta 53",
+        "Nombre de la funci\u00f3n": "Team Leader",
+        "Funciones": "Producci\u00f3n"
+    },
+    {
+        "Seccion": "Planta 51",
+        "Nombre de la funci\u00f3n": "Team Leader",
+        "Funciones": "Producci\u00f3n"
+    },
+    {
+        "Seccion": "Planta 55",
+        "Nombre de la funci\u00f3n": "Team Leader",
+        "Funciones": "Producci\u00f3n"
+    },
+    {
+        "Seccion": "Planta 55",
+        "Nombre de la funci\u00f3n": "Team Leader",
+        "Funciones": "Mantenimiento"
+    },
+    {
+        "Seccion": "Planta 51",
+        "Nombre de la funci\u00f3n": "Team Leader",
+        "Funciones": "Mantenimiento"
+    },
+    {
+        "Seccion": "Planta 53",
+        "Nombre de la funci\u00f3n": "Team Leader",
+        "Funciones": "Mantenimiento"
+    },
+    {
+        "Seccion": "Recursos Humanos",
+        "Nombre de la funci\u00f3n": "Encargado",
+        "Funciones": "Gesti\u00f3n personal"
     }
 ]

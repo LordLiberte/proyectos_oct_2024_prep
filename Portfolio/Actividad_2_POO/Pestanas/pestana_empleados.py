@@ -56,9 +56,9 @@ class PestanaEmpleados(pestanas.Pestana):
             "Nº Operario": self.num_operario.get(),
             "Sección": self.secciones.get(),
             "Nombre de la función": self.nombre_funcion.get()
-        }
+        } # Diccionario con los datos temporales
         
-        return self.datos_temp
+        return self.datos_temp  # Retorna el diccionario con los datos temporales
 
     # Comprueba que el usuario haya llenado todos los campos ========================================
     def comprobar_campos(self):
@@ -71,7 +71,7 @@ class PestanaEmpleados(pestanas.Pestana):
                         self.num_operario.get() != "" and 
                             self.secciones.get() != ""):
                                 self.__parametros = True
-                                return self.__parametros
+                                return self.__parametros # Retorna True si todos los campos están llenos
         else:
             return self.parametros
     
@@ -96,11 +96,11 @@ class PestanaEmpleados(pestanas.Pestana):
                 # Agregar el nuevo dato a la lista de datos existentes
                 with open(archivo_a_escribir, 'w') as file:
                     if self.datos not in datos_existentes:
-                        datos_existentes.append(self.datos)
+                        datos_existentes.append(self.datos) # Agrega los datos al diccionario
                     
                 # Guardar los datos actualizados en el archivo JSON
                 with open(archivo_a_escribir, "w") as file:
-                    json.dump(datos_existentes, file, indent=4)
+                    json.dump(datos_existentes, file, indent=4) # Guarda los datos en el archivo
                     
                 with open(archivo_a_escribir, "r") as file:
                     datos_existentes = json.load(file)
@@ -114,13 +114,13 @@ class PestanaEmpleados(pestanas.Pestana):
                 
     # Elimina información del JSON ===============================================================================================
     def eliminar_info(self):
-        self.datos_existentes = []
-        self.parametros = self.comprobar_campos
+        self.datos_existentes = [] # Inicializa la lista de datos existentes
+        self.parametros = self.comprobar_campos # Comprueba que todos los campos esten llenos
         
         try:
             if self.parametros:
                     
-                dato_a_eliminar = self.almacen_temporal_datos()
+                dato_a_eliminar = self.almacen_temporal_datos() # Guarda los datos en un diccionario
                         
                    # Verificar si el archivo existe
                 if not os.path.exists(archivo_a_escribir):
@@ -136,7 +136,7 @@ class PestanaEmpleados(pestanas.Pestana):
                     return
                         
                 # Filtrar los datos para eliminar el dato coincidente
-                datos_actualizados = [dato for dato in self.datos_existentes if dato != dato_a_eliminar]
+                datos_actualizados = [dato for dato in self.datos_existentes if dato != dato_a_eliminar] # Filtra los datos para eliminar el dato coincidente
                         
                 # Verificar si el dato fue eliminado
                 if len(self.datos_existentes) == len(datos_actualizados):
@@ -158,28 +158,28 @@ class PestanaEmpleados(pestanas.Pestana):
     # Carga los datos de la pestaña de secciones para el combobox ========================================
     def cargar_datos_secciones(self):
         
-        self.secciones = []
+        self.secciones = set()
         
-        with open(archivo_a_leer, "r") as file:
+        with open(archivo_a_leer, "r") as file: # Abre el archivo en modo lectura
             self.datos_secciones = json.load(file)
         
         for value in self.datos_secciones:
-            self.secciones.append(value["Seccion"])
+            self.secciones.add(value["Seccion"])
             
-        return self.secciones
+        return list(self.secciones)
     
     # Carga los datos de la pestaña de funciones para el combobox ========================================
     def cargar_datos_nombre_funciones(self):
         
-        self.funciones = []
+        self.funciones = set()  # Un set solo permite valores unico
         
-        with open(archivo_a_leer, "r") as file:
-            self.datos_funciones = json.load(file)
+        with open(archivo_a_leer, "r") as file: 
+            self.datos_funciones = json.load(file) # Carga los datos del archivo JSON
         
         for value in self.datos_funciones:
-            self.funciones.append(value["Nombre de la funci\u00f3n"])
+            self.funciones.add(value["Nombre de la funci\u00f3n"]) # Añade los valores al combobox
             
-        return self.funciones
+        return list(self.funciones)
     
     # Carga los datos de la fila seleccionada del Treeview en los campos de entrada ==========================
     def cargar_datos_fila(self, event):
@@ -209,6 +209,7 @@ class PestanaEmpleados(pestanas.Pestana):
         with open(archivo_a_escribir, "r") as file:
             datos = json.load(file)
             datos = pd.DataFrame(datos)
+            # Crear la tabla con los datos del JSON
 
         self.tabla = self.crear_treeview(datos, x=550, y=70, width=700, height=600)
 
