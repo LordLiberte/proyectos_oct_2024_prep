@@ -6,3 +6,5 @@ import os # Importa el módulo os
 import json # Importa el módulo json
 import pandas as pd # Importa la librería pandas
 import random
+import seaborn as sns
+import matplotlib.pyplot as plt

@@ -6,5 +6,45 @@
         "N\u00ba Operario": "64867139",
         "Secci\u00f3n": "Planta 55",
         "Nombre de la funci\u00f3n": "Operario"
+    },
+    {
+        "Nombre": "Carlos",
+        "Apellido": "Gonzalez",
+        "Edad": "24",
+        "N\u00ba Operario": "73838470",
+        "Secci\u00f3n": "Planta 51",
+        "Nombre de la funci\u00f3n": "Encargado"
+    },
+    {
+        "Nombre": "Juan",
+        "Apellido": "Alfonso",
+        "Edad": "42",
+        "N\u00ba Operario": "47472265",
+        "Secci\u00f3n": "Planta 53",
+        "Nombre de la funci\u00f3n": "Operario"
+    },
+    {
+        "Nombre": "Paco",
+        "Apellido": "Gutierrez",
+        "Edad": "24",
+        "N\u00ba Operario": "69403279",
+        "Secci\u00f3n": "Planta 51",
+        "Nombre de la funci\u00f3n": "Encargado"
+    },
+    {
+        "Nombre": "Anna",
+        "Apellido": "Beatriz",
+        "Edad": "35",
+        "N\u00ba Operario": "62986974",
+        "Secci\u00f3n": "Recursos Humanos",
+        "Nombre de la funci\u00f3n": "Operario"
+    },
+    {
+        "Nombre": "Juan",
+        "Apellido": "Alberto",
+        "Edad": "78",
+        "N\u00ba Operario": "31411111",
+        "Secci\u00f3n": "Recursos Humanos",
+        "Nombre de la funci\u00f3n": "Encargado"
     }
 ]
