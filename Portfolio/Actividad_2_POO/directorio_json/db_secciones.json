@@ -63,5 +63,15 @@
         "Seccion": "Recursos Humanos",
         "Nombre de la funci\u00f3n": "Encargado",
         "Funciones": "Gesti\u00f3n personal"
+    },
+    {
+        "Seccion": "Cantina",
+        "Nombre de la funci\u00f3n": "Cocinero",
+        "Funciones": "Cocina"
+    },
+    {
+        "Seccion": "Cantina",
+        "Nombre de la funci\u00f3n": "Recepcionista",
+        "Funciones": "Atenci\u00f3n Cliente"
     }
 ]

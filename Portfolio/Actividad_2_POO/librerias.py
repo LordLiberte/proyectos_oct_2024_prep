@@ -8,3 +8,7 @@ import pandas as pd # Importa la librería pandas
 import random
 import seaborn as sns
 import matplotlib.pyplot as plt
+import sys
+import logging
+import traceback
+from datetime import datetime
